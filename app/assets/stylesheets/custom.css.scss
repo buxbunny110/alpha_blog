@@ -1,0 +1,146 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    height: 100%
+}
+
+body,
+p,
+ol,
+ul,
+td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+a {
+    color: #000;
+}
+
+a:visited {
+    color: #666;
+}
+
+a:hover {
+    color: #fff;
+}
+
+th {
+    padding-bottom: 5px;
+}
+
+td {
+    padding: 0 5px 7px;
+}
+
+div.field,
+div.actions {
+    margin-bottom: 10px;
+}
+
+#notice {
+    color: green;
+}
+
+.field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
+#error_explanation {
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px 7px 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+}
+
+#error_explanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+label {
+    display: block;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.navbar {
+    background-color: black !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+#home-container {
+    margin-top: 25px;
+}
+
+@keyframes translate-car {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+.jumbotron {
+    background-image: asset-url('lambo.jpeg');
+    background-repeat: no-repeat;
+    animation-name: translate-car;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    p.lead {
+        font-family: Verdana;
+        line-height: 30px;
+        margin-top: 1.8em;
+    }
+    p {
+        color: white;
+    }
+}
+
+.footer {
+    background-color: #666;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    a {
+        color: white;
+    }
+}
