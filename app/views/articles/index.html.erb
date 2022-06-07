@@ -1,26 +1,31 @@
-<h1>Articles index</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+<h1 class="text-center mt-2">Articles index</h1>
+<div class="container articles">
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td>
-          <%= link_to 'Show', article_path(article) %>
-          <%= link_to 'Edit', edit_article_path(article) %>
-          <%= link_to 'Delete', article_path(article), method: 'delete' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<p>
-  <%= link_to 'Create new article', new_article_path %>
-</p>
+        <div class="row justify-content-center m-3">
+            <div class="col-8">
+                <div class="card text-center shadow">
+                    <div class="card-header">
+                        <span class="font-italic">
+                          By Irakli
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= link_to article.title, '#', class: 'title-link' %>
+                        </h5>
+                        <p class="card-text">
+                            <%= article.description %>
+                        </p>
+                        <%= link_to 'View', article_path(article), class: 'btn btn-outline-success' %>
+                            <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-info' %>
+                                <%= link_to 'Delete', article_path(article), class: 'btn btn-danger', method: :delete  %>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>created <%= time_ago_in_words(article.created_at) %> ago |</small> edited
+                        <%= time_ago_in_words(article.updated_at) %> ago
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+</div>
