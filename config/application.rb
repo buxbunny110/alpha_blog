@@ -15,5 +15,10 @@ module AlphaBlog
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # no error div on labels
+    add_error_div_proc = ActionView::Base.field_error_proc
+    config.action_view.field_error_proc = ->(html_tag, instance) { 
+      html_tag && html_tag.start_with?("<label") ? html_tag : add_error_div_proc.call(html_tag, instance) }
   end
 end
