@@ -1,8 +1,0 @@
-<% if @article.errors.any? %>
-  <h2 class="validation-title">Validation errors</h2>
-  <div class="validation-errors">
-    <% @article.errors.full_messages.each do |msg| %>
-    <div class="validation-error"><%= msg %></div>
-    <% end %>
-  </div>
-<% end %>
