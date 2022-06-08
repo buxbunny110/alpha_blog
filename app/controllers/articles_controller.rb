@@ -26,8 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update(article_params)
-    if @article
+    if @article.update(article_params)
       flash[:notice] = 'Article is updated!'
       redirect_to @article
     else
