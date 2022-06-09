@@ -1,12 +1,27 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Go back', articles_path %>
+<div class="container articles">
+  <div class="row justify-content-center m-3">
+    <div class="col-8">
+      <div class="card text-center shadow">
+        <div class="card-header">
+          <span class="font-italic">
+            By Irakli
+          </span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= @article.title %>
+          </h5>
+          <div class="card-text text-left">
+            <%= simple_format(@article.description) %>
+          </div>
+          <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-info' %>
+          <%= link_to 'Delete', article_path(@article), class: 'btn btn-danger', method: :delete  %>
+        </div>
+        <div class="card-footer text-muted">
+          <small>created <%= time_ago_in_words(@article.created_at) %> ago |</small> edited
+          <%= time_ago_in_words(@article.updated_at) %> ago
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
