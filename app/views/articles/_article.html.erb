@@ -1,0 +1,33 @@
+<% if @articles.size > 0 %>
+  <h1 class="text-center mt-4">Listing all articles</h1>
+<% end %>
+<div class="container articles">
+  <% @articles.each do |article| %>
+    <div class="row justify-content-center m-3">
+      <div class="col-8">
+        <div class="card text-center shadow">
+          <div class="card-header">
+            <span class="font-italic">
+              By <%= article.user.username %>
+            </span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= link_to article.title, article_path(article), class: 'title-link' %>
+            </h5>
+            <p class="card-text">
+              <%= article.description %>
+            </p>
+            <%= link_to 'View', article_path(article), class: 'btn btn-outline-success' %>
+            <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-info' %>
+            <%= link_to 'Delete', article_path(article), class: 'btn btn-danger', method: :delete  %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>created <%= time_ago_in_words(article.created_at) %> ago |</small> edited
+            <%= time_ago_in_words(article.updated_at) %> ago
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
