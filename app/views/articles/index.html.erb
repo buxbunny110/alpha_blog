@@ -2,11 +2,11 @@
 <div class="container articles">
     <% @articles.each do |article| %>
         <div class="row justify-content-center m-3">
-            <div class="col-8">
+            <div class="col-12 col-md-8">
                 <div class="card text-center shadow">
                     <div class="card-header">
                         <span class="font-italic">
-                          By <%= article.user.username %>
+                          By <%= link_to article.user.username, article.user, class: 'user-link' %>
                         </span>
                     </div>
                     <div class="card-body">
