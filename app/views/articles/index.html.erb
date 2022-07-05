@@ -1,4 +1,5 @@
 <h1 class="text-center mt-2">Articles index</h1>
+<%= will_paginate(@articles, class: 'apple_pagination') %>
 <div class="container articles">
     <% @articles.each do |article| %>
         <div class="row justify-content-center m-3">
