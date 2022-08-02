@@ -15,7 +15,9 @@
               <%= user.articles.blank? ? "has no articles yet" : "#{user.articles.size} articles" %>
             </p>
             <%= link_to 'View', user_path(user), class: 'btn btn-outline-success' %>
-            <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
+            <% if logged_in? && user == current_user %>
+              <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
