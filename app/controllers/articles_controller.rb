@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :check_user_belonging, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.paginate(page: params[:page], per_page: 5).order('id DESC')
   end
 
   def show
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
   end
 
   def check_user_belonging
-    if @article.user != current_user
+    if (@article.user != current_user) and not current_user.admin? 
       flash[:notice] = "You can only change your own articles"
       redirect_to(article_path)
     end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :require_user, only: [:edit, :update]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -29,14 +29,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-
     if @user.save
       flash[:notice] = 'Welcome to the alpha blog, you have successfully signed up'
       redirect_to articles_path
     else
       render 'new'
     end 
-    
+  end
+
+  def destroy 
+    @user.destroy
+    flash[:notice] = "#{@user.username} account is deleted"
+    redirect_to(users_path)
   end
 
   private
@@ -50,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user 
+    if current_user != @user and not current_user.admin?
       flash[:alert] = "You can only edit your own account"
       redirect_to users_path
     end
