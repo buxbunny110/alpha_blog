@@ -1,5 +1,5 @@
 <% flash.each do |key, message| %>
-  <div class="alert alert-success is-dismissable" role="alert">
+  <div class="<%= key == 'notice' ? 'alert-success' : 'alert-danger' %> alert is-dismissable" role="alert">
     <h4 class="alert-heading"><%= message %>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
