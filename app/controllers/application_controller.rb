@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!session[:user_id]
   end
+
+  def require_user
+    if not logged_in?
+      flash[:notice] = 'You should be logged in'
+      redirect_to(root_path)
+    end
+  end
 end
