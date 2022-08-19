@@ -1,13 +1,14 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:new]
+  before_action :set_category, only: [:show]
 
   def index
   end
 
-  def show  
+  def show
   end
 
   def new 
+    @category = Category.new
   end
 
   def create
@@ -15,16 +16,17 @@ class CategoriesController < ApplicationController
 
     if @category.save
       flash[:notice] = "#{@category.name} category has been saved"
+      redirect_to(category_path(@category))
     else
-      flash[:warning] = "Some error creating category"
+      flash[:error] = "Some error creating category"
+      render "new"
     end 
-    redirect_to new_category_path
   end
 
   private 
   
   def set_category
-    @category = Category.new 
+    @category = Category.find(params[:id])
   end
 
   def category_params
