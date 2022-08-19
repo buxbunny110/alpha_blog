@@ -1,0 +1,12 @@
+.categories-list {
+  li {
+    display: inline-block;
+    a {
+      font-size: 2em;
+      color: black;
+    }
+    a:after {
+      content: ' |'
+    }
+  }
+}
