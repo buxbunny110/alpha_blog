@@ -12,6 +12,12 @@
       <%= f.text_area :description, rows: 10, class: 'form-control shadow', placeholder: 'Description...' %>
     </div>
   </div>
+  <div class="form-group row">
+    <%= f.label :category, class: "col-2 col-form-label" %>
+    <div class="col-10">
+      <%= f.collection_select :category_ids, Category.all, :id, :name, { prompt: 'Select Category'}, { multiple: true, class: 'custom-select' } %>
+    </div>
+  </div>
   <div class="form-group row justify-content-center">
     <%= f.submit class: 'btn btn-outline-success btn-lg' %>
   </div>
