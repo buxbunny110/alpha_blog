@@ -1,1 +1,7 @@
 <h2 class="text-center m-4"><%= @category.name %></h2>
+<div class="center">
+  <%=  link_to "Edit category", edit_category_path(@category), class: "btn btn-primary btn-lg btn-block" %>
+</div>
+<%= will_paginate(@articles, class: 'apple_pagination') %>
+<%= render 'articles/article' %>
+<%= will_paginate(@articles, class: 'apple_pagination') %>

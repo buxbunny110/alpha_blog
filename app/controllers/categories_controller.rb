@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [:show, :edit, :update]
   before_action :require_admin, except: [:index, :show]
 
   def index
@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @articles = @category.articles.paginate(page: params[:page], per_page: 5).order('id DESC')
   end
 
   def new 
@@ -23,6 +24,19 @@ class CategoriesController < ApplicationController
       flash[:error] = "Some error creating category"
       render "new"
     end 
+  end
+
+  def edit 
+  end
+
+  def update
+    if @category.update(category_params)
+      flash[:notice] = "Category has been updated"
+      redirect_to(categories_path)
+    else
+      flash[:alert] = "Can't update category" 
+      render 'edit'
+    end
   end
 
   private 
