@@ -1,24 +1,6 @@
-# README
+### How to boot:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. bundle 
+2. rails s
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**If you're on windows and getting some build errors from the bundler I got a solution, just switch your OS unless you're ~~.NET dev~~, it's not worth it**
